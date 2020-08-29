@@ -10,7 +10,7 @@ public class Login implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "login_seq")
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Column(name = "username")
     private String username;
@@ -19,7 +19,7 @@ public class Login implements Serializable {
     private String email;
 
     @Column(name = "credential_id")
-    private Integer credentialId;
+    private Long credentialId;
 
     @OneToOne
     @JoinColumn(name = "credential_id", updatable = false, insertable = false)
@@ -46,11 +46,11 @@ public class Login implements Serializable {
         this.password = password;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -70,11 +70,11 @@ public class Login implements Serializable {
         this.email = email;
     }
 
-    public Integer getCredentialId() {
+    public Long getCredentialId() {
         return credentialId;
     }
 
-    public void setCredentialId(Integer credentialId) {
+    public void setCredentialId(Long credentialId) {
         this.credentialId = credentialId;
     }
 

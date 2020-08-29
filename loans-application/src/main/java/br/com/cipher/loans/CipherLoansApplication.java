@@ -1,11 +1,12 @@
-package com.chipher.loans;
+package br.com.cipher.loans;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.context.annotation.ComponentScan;
 
-
-@EnableJpaRepositories
+@ComponentScan({"br.com.cipher.loans.services"})
+@ComponentScan({"br.com.cipher.loans.repositories"})
+@ComponentScan({"br.com.cipher.loans.controllers"})
 @SpringBootApplication
 public class CipherLoansApplication {
 

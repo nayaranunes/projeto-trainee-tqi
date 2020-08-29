@@ -1,24 +1,18 @@
 package br.com.cipher.loans.requests;
 
-import com.sun.istack.NotNull;
 import br.com.cipher.loans.entities.enums.DocumentType;
 import java.time.LocalDate;
 
 public class CredentialRequest {
 
-    @NotNull
     private String name;
-    @NotNull
     private String document;
     private DocumentType documentType;
     private LocalDate birthday;
     private Double scorePoints;
     private String phone;
-    @NotNull
     private String username;
-    @NotNull
     private String email;
-    @NotNull
     private String password;
 
     public CredentialRequest() {

@@ -1,19 +1,19 @@
 package br.com.cipher.loans.validators;
 
 
+import br.com.cipher.loans.error.RequestException;
+
 public class CnpjValidator {
 
-    public static boolean isCnpj(String document) {
+    public static void isCnpj(String cnpj) {
 
-        String cnpj = rebuildCnpj(document);
-        
         if (cnpj.equals("00000000000000") || cnpj.equals("11111111111111") ||
                 cnpj.equals("22222222222222") || cnpj.equals("33333333333333") ||
                 cnpj.equals("44444444444444") || cnpj.equals("55555555555555") ||
                 cnpj.equals("66666666666666") || cnpj.equals("77777777777777") ||
                 cnpj.equals("88888888888888") || cnpj.equals("99999999999999") ||
                 (cnpj.length() != 14)) {
-            return false;
+            throw new RequestException("Invalid CNPJ! Try to check your request.");
         }
 
         char dig13, dig14;
@@ -54,14 +54,7 @@ public class CnpjValidator {
         else dig14 = (char) ((11 - r) + 48);
 
         // Verify if the digits matches with the entered digits
-        return (dig13 == cnpj.charAt(12)) && (dig14 == cnpj.charAt(13));
-    }
-
-    private static String rebuildCnpj(String document) {
-        String cnpj = document.replace(".","");
-        cnpj = cnpj.replace("-","");
-        cnpj = cnpj.replace(" ","");
-        cnpj = cnpj.replace("/","");
-        return cnpj;
+        if (!(dig13 == cnpj.charAt(12) && dig14 == cnpj.charAt(13)))
+            throw new RequestException("Invalid CNPJ! Try to check your request.");
     }
 }

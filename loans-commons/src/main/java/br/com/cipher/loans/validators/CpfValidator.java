@@ -1,18 +1,18 @@
 package br.com.cipher.loans.validators;
 
+import br.com.cipher.loans.error.RequestException;
+
 public class CpfValidator {
 
-    public static boolean isCpf(String document) {
+    public static void isCpf(String cpf) {
 
-        String cpf = rebuildCpf(document);
-        
         if (cpf.equals("00000000000") || cpf.equals("11111111111") ||
                 cpf.equals("22222222222") || cpf.equals("33333333333") ||
                 cpf.equals("44444444444") || cpf.equals("55555555555") ||
                 cpf.equals("66666666666") || cpf.equals("77777777777") ||
                 cpf.equals("88888888888") || cpf.equals("99999999999") ||
                 (cpf.length() != 11)) {
-            return false;
+            throw new RequestException("Invalid CPF! Try to check your request.");
         }
 
         char dig10, dig11;
@@ -47,14 +47,8 @@ public class CpfValidator {
         else dig11 = (char) (r + 48);
 
         // Verify if the digits matches with the entered digits
-        return dig10 == cpf.charAt(9) && dig11 == cpf.charAt(10);
+        if (!(dig10 == cpf.charAt(9) && dig11 == cpf.charAt(10)))
+            throw new RequestException("Invalid CPF! Try to check your request.");
     }
 
-    private static String rebuildCpf(String document) {
-
-        String cpf = document.replace(".","");
-        cpf = cpf.replace("-","");
-        cpf = cpf.replace(" ","");
-        return cpf;
-    }
 }
