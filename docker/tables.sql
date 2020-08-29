@@ -1,12 +1,14 @@
 CREATE TABLE IF NOT EXISTS credential
 (
-    id            BIGINT       NOT NULL PRIMARY KEY,
-    name          VARCHAR(255) NOT NULL,
-    document      VARCHAR(50)  NOT NULL,
-    document_type VARCHAR(4)   NOT NULL,
-    birthday      DATE         NOT NULL NOT NULL,
-    phone         VARCHAR(255) NOT NULL,
-    created_at    TIMESTAMP DEFAULT now()
+    id            BIGINT           NOT NULL PRIMARY KEY,
+    name          VARCHAR(255)     NOT NULL,
+    document      VARCHAR(50)      NOT NULL,
+    document_type VARCHAR(4)       NOT NULL,
+    score_points  DOUBLE PRECISION NOT NULL,
+    birthday      DATE             NOT NULL NOT NULL,
+    phone         VARCHAR(255)     NOT NULL,
+    created_at    TIMESTAMP DEFAULT now(),
+    CONSTRAINT type_check CHECK (document_type IN ('CPF', 'CNPJ'))
 );
 
 CREATE SEQUENCE IF NOT EXISTS credential_seq
@@ -33,4 +35,20 @@ CREATE SEQUENCE IF NOT EXISTS login_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
--- create table if not exists emprestimo
+
+CREATE TABLE IF NOT EXISTS loan
+(
+    id            BIGINT           NOT NULL PRIMARY KEY,
+    credential_id BIGINT           NOT NULL,
+    value         DOUBLE PRECISION NOT NULL,
+    approved      BOOLEAN          NOT NULL DEFAULT false,
+    created_at    TIMESTAMP                 DEFAULT now(),
+    CONSTRAINT fk_loan_x_credential FOREIGN KEY (credential_id) REFERENCES credential (id)
+);
+
+CREATE SEQUENCE IF NOT EXISTS loan_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;

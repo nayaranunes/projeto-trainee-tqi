@@ -1,4 +1,4 @@
-package br.com.cipher.loans.entitys.enums;
+package br.com.cipher.loans.entities.enums;
 
 public enum DocumentType {
     CPF,
