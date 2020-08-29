@@ -1,4 +1,4 @@
-package br.com.cipher.loans.entitys;
+package br.com.cipher.loans.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -35,10 +35,13 @@ public class Login implements Serializable {
         super();
     }
 
+
     public Login(String username, String email,
+                 Credential credential,
                  boolean status, String password) {
         this.username = username;
         this.email = email;
+        this.credential = credential;
         this.status = status;
         this.password = password;
     }

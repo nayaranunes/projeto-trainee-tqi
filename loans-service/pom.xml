@@ -10,6 +10,25 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>loans-service</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.cipher.loans</groupId>
+            <artifactId>loans-repository</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.cipher.loans</groupId>
+            <artifactId>loans-model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.cipher.loans</groupId>
+            <artifactId>loans-commons</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

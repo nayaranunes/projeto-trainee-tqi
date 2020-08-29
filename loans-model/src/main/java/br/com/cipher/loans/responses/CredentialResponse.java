@@ -1,54 +1,37 @@
-package br.com.cipher.loans.entitys;
+package br.com.cipher.loans.responses;
 
+import br.com.cipher.loans.entities.enums.DocumentType;
 
-import br.com.cipher.loans.entitys.enums.DocumentType;
-
-import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "credential")
-public class Credential implements Serializable {
+public class CredentialResponse {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "credential_seq")
-    @Column(name = "id")
     private Long id;
-
-    @Column(name = "name")
     private String name;
-
-    @Column(name = "document")
     private String document;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "document_type")
     private DocumentType documentType;
-
-    @Column(name = "birthday")
+    private Double scorePoints;
     private LocalDate birthday;
-
-    @Column(name = "phone")
     private String phone;
-
-    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    public Credential() {
+    public CredentialResponse() {
         super();
     }
 
-    public Credential(String name, String document,
-                  DocumentType documentType,
-                  LocalDate birthday, String phone,
-                      LocalDateTime createdAt) {
+    public CredentialResponse(Long id, String name, String document,
+                              DocumentType documentType, Double scorePoints,
+                              LocalDate birthday, String phone,
+                              LocalDateTime createdAt) {
+        this.id = id;
         this.name = name;
         this.document = document;
+        this.documentType = documentType;
+        this.scorePoints = scorePoints;
         this.birthday = birthday;
         this.phone = phone;
-        this.createdAt = LocalDateTime.now();
+        this.createdAt = createdAt;
     }
 
     public Long getId() {
@@ -81,6 +64,14 @@ public class Credential implements Serializable {
 
     public void setDocumentType(DocumentType documentType) {
         this.documentType = documentType;
+    }
+
+    public Double getScorePoints() {
+        return scorePoints;
+    }
+
+    public void setScorePoints(Double scorePoints) {
+        this.scorePoints = scorePoints;
     }
 
     public LocalDate getBirthday() {
