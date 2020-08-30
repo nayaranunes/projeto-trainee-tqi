@@ -1,60 +1,35 @@
-package br.com.cipher.loans.entities;
+package br.com.cipher.loans.response;
 
-import br.com.cipher.loans.entities.enums.DocumentType;
+import br.com.cipher.loans.entity.DocumentType;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "credential")
-public class Credential implements Serializable {
+public class CredentialResponse {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "credential_seq")
-    @Column(name = "id")
     private Long id;
-
-    @Column(name = "name")
     private String name;
-
-    @Column(name = "document")
     private String document;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "document_type")
     private DocumentType documentType;
-
-    @Column(name = "score_points")
     private Double scorePoints;
-
-    @Column(name = "income")
     private Double income;
-
-    @Column(name = "phone")
     private String phone;
-
-    @Column(name = "created_at")
     private LocalDateTime createdAt;
-    
 
-    public Credential(String name,
-                      String document,
-                      DocumentType documentType,
-                      Double income,
-                      String phone,
-                      LocalDateTime createdAt) {
+    public CredentialResponse() {
+        super();
+    }
+
+    public CredentialResponse(Long id, String name, String document,
+                              DocumentType documentType, Double scorePoints,
+                              Double income, String phone, LocalDateTime createdAt) {
+        this.id = id;
         this.name = name;
         this.document = document;
         this.documentType = documentType;
+        this.scorePoints = scorePoints;
         this.income = income;
         this.phone = phone;
         this.createdAt = createdAt;
-    }
-
-    public Credential() {
-        super();
     }
 
     public Long getId() {

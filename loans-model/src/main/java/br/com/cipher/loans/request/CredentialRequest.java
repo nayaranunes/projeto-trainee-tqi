@@ -1,6 +1,6 @@
-package br.com.cipher.loans.requests;
+package br.com.cipher.loans.request;
 
-import br.com.cipher.loans.entities.enums.DocumentType;
+import br.com.cipher.loans.entity.DocumentType;
 
 public class CredentialRequest {
 

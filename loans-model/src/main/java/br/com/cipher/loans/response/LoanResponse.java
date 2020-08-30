@@ -1,4 +1,4 @@
-package br.com.cipher.loans.responses;
+package br.com.cipher.loans.response;
 
 public class LoanResponse {
 

@@ -1,4 +1,4 @@
-package br.com.cipher.loans.entities;
+package br.com.cipher.loans.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;

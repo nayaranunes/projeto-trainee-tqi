@@ -1,15 +1,15 @@
-package br.com.cipher.loans.services;
+package br.com.cipher.loans.service;
 
-import br.com.cipher.loans.entities.Credential;
-import br.com.cipher.loans.entities.Login;
-import br.com.cipher.loans.entities.enums.DocumentType;
+import br.com.cipher.loans.entity.Credential;
+import br.com.cipher.loans.entity.Login;
+import br.com.cipher.loans.entity.DocumentType;
 import br.com.cipher.loans.error.RequestException;
-import br.com.cipher.loans.repositories.CredentialRepository;
-import br.com.cipher.loans.requests.CredentialRequest;
-import br.com.cipher.loans.responses.CredentialResponse;
-import br.com.cipher.loans.validators.CnpjValidator;
-import br.com.cipher.loans.validators.ContactValidator;
-import br.com.cipher.loans.validators.CpfValidator;
+import br.com.cipher.loans.repository.CredentialRepository;
+import br.com.cipher.loans.request.CredentialRequest;
+import br.com.cipher.loans.response.CredentialResponse;
+import br.com.cipher.loans.validator.CnpjValidator;
+import br.com.cipher.loans.validator.ContactValidator;
+import br.com.cipher.loans.validator.CpfValidator;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

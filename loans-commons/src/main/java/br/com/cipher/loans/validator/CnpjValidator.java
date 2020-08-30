@@ -1,4 +1,4 @@
-package br.com.cipher.loans.validators;
+package br.com.cipher.loans.validator;
 
 
 import br.com.cipher.loans.error.RequestException;

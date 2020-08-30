@@ -1,13 +1,16 @@
 package br.com.cipher.loans.controller;
 
-import br.com.cipher.loans.requests.CredentialRequest;
-import br.com.cipher.loans.responses.CredentialResponse;
-import br.com.cipher.loans.services.CredentialService;
+import br.com.cipher.loans.request.CredentialRequest;
+import br.com.cipher.loans.response.CredentialResponse;
+import br.com.cipher.loans.service.CredentialService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@Api(value = "Credential", description = "Class responsible by credential creation for user")
 @RestController
 @RequestMapping("/v1/credential")
 public class CredentialController {
@@ -19,6 +22,7 @@ public class CredentialController {
         this.credentialService = credentialService;
     }
 
+    @ApiOperation(value = "Credential creation")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public ResponseEntity<CredentialResponse> create(@RequestBody CredentialRequest credentialRequest) {
@@ -26,6 +30,7 @@ public class CredentialController {
         return ResponseEntity.ok(credentialResponse);
     }
 
+    @ApiOperation(value = "Get credential")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
     public ResponseEntity<CredentialResponse> getCredential(@PathVariable Long id) {

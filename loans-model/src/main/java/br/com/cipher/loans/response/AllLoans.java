@@ -1,6 +1,6 @@
-package br.com.cipher.loans.responses;
+package br.com.cipher.loans.response;
 
-import br.com.cipher.loans.entities.Loan;
+import br.com.cipher.loans.entity.Loan;
 
 import java.util.List;
 

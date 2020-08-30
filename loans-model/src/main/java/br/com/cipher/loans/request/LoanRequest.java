@@ -1,4 +1,4 @@
-package br.com.cipher.loans.requests;
+package br.com.cipher.loans.request;
 
 public class LoanRequest {
 

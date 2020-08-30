@@ -1,11 +1,10 @@
-package br.com.cipher.loans.services;
+package br.com.cipher.loans.service;
 
-import br.com.cipher.loans.entities.Login;
+import br.com.cipher.loans.entity.Login;
 import br.com.cipher.loans.error.RequestException;
-import br.com.cipher.loans.repositories.LoginRepository;
-import br.com.cipher.loans.requests.LoginRequest;
+import br.com.cipher.loans.repository.LoginRepository;
+import br.com.cipher.loans.request.LoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

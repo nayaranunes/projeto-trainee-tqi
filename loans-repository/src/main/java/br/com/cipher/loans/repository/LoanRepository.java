@@ -1,6 +1,6 @@
-package br.com.cipher.loans.repositories;
+package br.com.cipher.loans.repository;
 
-import br.com.cipher.loans.entities.Loan;
+import br.com.cipher.loans.entity.Loan;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
