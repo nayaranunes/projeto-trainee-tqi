@@ -1,4 +1,4 @@
-package br.com.cipher.loans.controllers;
+package br.com.cipher.loans.controller;
 
 import br.com.cipher.loans.requests.LoginRequest;
 import br.com.cipher.loans.services.LoginService;

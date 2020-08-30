@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan({"br.com.cipher.loans.services"})
 @ComponentScan({"br.com.cipher.loans.repositories"})
-@ComponentScan({"br.com.cipher.loans.controllers"})
+@ComponentScan({"br.com.cipher.loans.controller"})
 @SpringBootApplication
 public class CipherLoansApplication {
 

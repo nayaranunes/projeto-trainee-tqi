@@ -27,7 +27,7 @@
 
     <properties>
         <java.version>11</java.version>
-
+        <swagger.version>2.9.2</swagger.version>
         <maven.compiler.version>3.6.1</maven.compiler.version>
         <maven.resources.version>2.7</maven.resources.version>
         <project.build.java>1.8</project.build.java>
@@ -70,6 +70,16 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
         </dependency>
     </dependencies>
 

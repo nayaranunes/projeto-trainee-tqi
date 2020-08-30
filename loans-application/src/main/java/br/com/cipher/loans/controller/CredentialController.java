@@ -1,4 +1,4 @@
-package br.com.cipher.loans.controllers;
+package br.com.cipher.loans.controller;
 
 import br.com.cipher.loans.requests.CredentialRequest;
 import br.com.cipher.loans.responses.CredentialResponse;
