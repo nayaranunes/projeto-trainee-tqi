@@ -4,8 +4,8 @@ CREATE TABLE IF NOT EXISTS credential
     name          VARCHAR(255)     NOT NULL,
     document      VARCHAR(50)      NOT NULL,
     document_type VARCHAR(4)       NOT NULL,
-    score_points  DOUBLE PRECISION NOT NULL,
-    birthday      DATE,
+    score_points  DOUBLE PRECISION,
+    income        DOUBLE PRECISION NOT NULL,
     phone         VARCHAR(255)     NOT NULL,
     created_at    TIMESTAMP DEFAULT now(),
     CONSTRAINT type_check CHECK (document_type IN ('CPF', 'CNPJ'))

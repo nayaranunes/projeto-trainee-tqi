@@ -17,7 +17,7 @@ public class Loan implements Serializable {
     private Long credentialId;
 
     @Column(name = "value")
-    private double value;
+    private Double value;
 
     @Column(name = "approved")
     private boolean approved;

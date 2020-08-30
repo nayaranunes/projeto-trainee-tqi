@@ -22,7 +22,15 @@ public class CredentialController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public ResponseEntity<CredentialResponse> create(@RequestBody CredentialRequest credentialRequest) {
-        CredentialResponse credentialResponse = this.credentialService.execute(credentialRequest);
+        CredentialResponse credentialResponse = this.credentialService.create(credentialRequest);
         return ResponseEntity.ok(credentialResponse);
     }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/{id}")
+    public ResponseEntity<CredentialResponse> getCredential(@PathVariable Long id) {
+        CredentialResponse credentialResponse = this.credentialService.getByCredentialId(id);
+        return ResponseEntity.ok(credentialResponse);
+    }
+
 }

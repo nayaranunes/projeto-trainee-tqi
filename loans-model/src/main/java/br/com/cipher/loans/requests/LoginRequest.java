@@ -5,15 +5,13 @@ import com.sun.istack.NotNull;
 public class LoginRequest {
 
     @NotNull
-    private String login;
+    private final String login;
 
     @NotNull
-    private String password;
-
-    public LoginRequest() {
-    }
+    private final String password;
 
     public LoginRequest(String login, String password) {
+        super();
         this.login = login;
         this.password = password;
     }
@@ -22,15 +20,8 @@ public class LoginRequest {
         return login;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

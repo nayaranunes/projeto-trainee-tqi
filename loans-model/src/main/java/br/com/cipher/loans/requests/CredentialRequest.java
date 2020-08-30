@@ -1,43 +1,32 @@
 package br.com.cipher.loans.requests;
 
 import br.com.cipher.loans.entities.enums.DocumentType;
-import java.time.LocalDate;
 
 public class CredentialRequest {
 
-    private String name;
+    private final String name;
     private String document;
-    private DocumentType documentType;
-    private LocalDate birthday;
-    private Double scorePoints;
+    private final DocumentType documentType;
+    private final Double income;
     private String phone;
-    private String username;
-    private String email;
-    private String password;
-
-    public CredentialRequest() {
-        super();
-    }
+    private final String username;
+    private final String email;
+    private final String password;
 
     public CredentialRequest(String name, String document,
                              DocumentType documentType,
-                             LocalDate birthday,
-                             Double scorePoints,
-                             String phone, String username,
-                             String email, String password) {
+                             Double income, String phone,
+                             String username, String email,
+                             String password) {
+        super();
         this.name = name;
         this.document = document;
         this.documentType = documentType;
-        this.birthday = birthday;
-        this.scorePoints = scorePoints;
+        this.income = income;
         this.phone = phone;
         this.username = username;
         this.email = email;
         this.password = password;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public void setDocument(String document) {
@@ -56,24 +45,8 @@ public class CredentialRequest {
         return documentType;
     }
 
-    public void setDocumentType(DocumentType documentType) {
-        this.documentType = documentType;
-    }
-
-    public LocalDate getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
-    }
-
-    public Double getScorePoints() {
-        return scorePoints;
-    }
-
-    public void setScorePoints(Double scorePoints) {
-        this.scorePoints = scorePoints;
+    public Double getIncome() {
+        return income;
     }
 
     public String getPhone() {
@@ -88,23 +61,12 @@ public class CredentialRequest {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getEmail() {
         return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

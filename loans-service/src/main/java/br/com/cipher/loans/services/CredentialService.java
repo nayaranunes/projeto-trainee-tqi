@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -30,9 +31,10 @@ public class CredentialService {
         this.loginService = loginService;
     }
 
-    public CredentialResponse execute(CredentialRequest credentialRequest) {
+    public CredentialResponse create(CredentialRequest credentialRequest) {
 
-        rebuild(credentialRequest);
+        credentialRequest.setDocument(rebuild(credentialRequest.getDocument()));
+        credentialRequest.setPhone(rebuild(credentialRequest.getPhone()));
         ContactValidator.email(credentialRequest.getEmail());
         ContactValidator.phone(credentialRequest.getPhone());
 
@@ -55,17 +57,19 @@ public class CredentialService {
         return this.createCredential(credentialRequest);
     }
 
-    private static void rebuild(CredentialRequest credentialRequest) {
-        credentialRequest.setPhone(credentialRequest.getPhone().replace("-",""));
-        credentialRequest.setPhone(credentialRequest.getPhone().replace("(",""));
-        credentialRequest.setPhone(credentialRequest.getPhone().replace(")",""));
-        credentialRequest.setPhone(credentialRequest.getPhone().replace(" ",""));
-        credentialRequest.setDocument(credentialRequest.getDocument().replace(" ",""));
-        credentialRequest.setDocument(credentialRequest.getDocument().replace(".",""));
-        credentialRequest.setDocument(credentialRequest.getDocument().replace("-",""));
-        credentialRequest.setDocument(credentialRequest.getDocument().replace("/",""));
-    }
+    private static String rebuild(String string) {
 
+        string = string.replace("-","");
+        string = string.replace("(","");
+        string = string.replace(")","");
+        string = string.replace(" ","");
+        string = string.replace(" ","");
+        string = string.replace(".","");
+        string = string.replace("-","");
+        string = string.replace("/","");
+
+        return string;
+    }
 
     private CredentialResponse createCredential(CredentialRequest credentialRequest) {
 
@@ -73,8 +77,7 @@ public class CredentialService {
                 credentialRequest.getName(),
                 credentialRequest.getDocument(),
                 credentialRequest.getDocumentType(),
-                credentialRequest.getScorePoints(),
-                credentialRequest.getBirthday(),
+                credentialRequest.getIncome(),
                 credentialRequest.getPhone(),
                 LocalDateTime.now()
         );
@@ -95,4 +98,31 @@ public class CredentialService {
         return new ModelMapper().map(credential, CredentialResponse.class);
 
     }
+
+    public Credential getByDocument(String document) {
+
+        Optional<Credential> credential = credentialRepository.findByDocument(rebuild(document));
+        if (!credential.isPresent()) {
+            throw new RequestException("Document is incorrect!");
+        }
+        return credential.get();
+    }
+
+    public void setScorePoints(Credential credential, Double scorePoints) {
+        if (scorePoints < 0 && scorePoints > 1000) throw new RequestException("Score point is invalid!");
+        credential.setScorePoints(scorePoints);
+        this.credentialRepository.save(credential);
+    }
+
+    public Credential getById(Long credentialId) {
+
+        Optional<Credential> credential = this.credentialRepository.findById(credentialId);
+        if (!credential.isPresent()) throw new RequestException("Credential not found!");
+        return credential.get();
+    }
+
+    public CredentialResponse getByCredentialId(Long id) {
+        return new ModelMapper().map(this.getById(id), CredentialResponse.class);
+    }
+
 }

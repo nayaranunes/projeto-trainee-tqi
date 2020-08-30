@@ -29,8 +29,8 @@ public class Credential implements Serializable {
     @Column(name = "score_points")
     private Double scorePoints;
 
-    @Column(name = "birthday")
-    private LocalDate birthday;
+    @Column(name = "income")
+    private Double income;
 
     @Column(name = "phone")
     private String phone;
@@ -42,15 +42,13 @@ public class Credential implements Serializable {
     public Credential(String name,
                       String document,
                       DocumentType documentType,
-                      Double scorePoints,
-                      LocalDate birthday,
+                      Double income,
                       String phone,
                       LocalDateTime createdAt) {
         this.name = name;
         this.document = document;
         this.documentType = documentType;
-        this.scorePoints = scorePoints;
-        this.birthday = birthday;
+        this.income = income;
         this.phone = phone;
         this.createdAt = createdAt;
     }
@@ -99,12 +97,12 @@ public class Credential implements Serializable {
         this.scorePoints = scorePoints;
     }
 
-    public LocalDate getBirthday() {
-        return birthday;
+    public Double getIncome() {
+        return income;
     }
 
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
+    public void setIncome(Double income) {
+        this.income = income;
     }
 
     public String getPhone() {

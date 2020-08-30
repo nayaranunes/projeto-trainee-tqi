@@ -2,7 +2,6 @@ package br.com.cipher.loans.responses;
 
 import br.com.cipher.loans.entities.enums.DocumentType;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class CredentialResponse {
@@ -12,7 +11,7 @@ public class CredentialResponse {
     private String document;
     private DocumentType documentType;
     private Double scorePoints;
-    private LocalDate birthday;
+    private Double income;
     private String phone;
     private LocalDateTime createdAt;
 
@@ -22,14 +21,13 @@ public class CredentialResponse {
 
     public CredentialResponse(Long id, String name, String document,
                               DocumentType documentType, Double scorePoints,
-                              LocalDate birthday, String phone,
-                              LocalDateTime createdAt) {
+                              Double income, String phone, LocalDateTime createdAt) {
         this.id = id;
         this.name = name;
         this.document = document;
         this.documentType = documentType;
         this.scorePoints = scorePoints;
-        this.birthday = birthday;
+        this.income = income;
         this.phone = phone;
         this.createdAt = createdAt;
     }
@@ -74,12 +72,12 @@ public class CredentialResponse {
         this.scorePoints = scorePoints;
     }
 
-    public LocalDate getBirthday() {
-        return birthday;
+    public Double getIncome() {
+        return income;
     }
 
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
+    public void setIncome(Double income) {
+        this.income = income;
     }
 
     public String getPhone() {
