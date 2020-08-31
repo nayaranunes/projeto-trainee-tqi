@@ -10,7 +10,7 @@ Parametrização da aprovação do empréstimo (score point, renda(income), valo
 
 600 > Score >= 500 | até 30% da renda é aprovada;
 
-Obs: Um usuário pode se cadastrar com CPF ou CNPJ, e fazer login ocm username ou email.
+Obs: Um usuário pode se cadastrar com CPF ou CNPJ, e fazer login com username ou email.
 
 ### Subindo o banco de dados utilizando docker-compose 
 Requisitos: 
