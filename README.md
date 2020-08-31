@@ -13,13 +13,15 @@ Parametrização da aprovação do empréstimo(score point, renda(income), valor
 Obs: Um usuário pode se cadastrar com CPF ou CNPJ, e fazer login ocm username ou email.
 
 ### Subindo o banco de dados utilizando docker-compose 
-Requisitos: ter docker e docker-compose instalados e rodar no terminal:
+Requisitos: 
+
+1) ter docker e docker-compose instalados, e rodar no terminal:
 ```systemctl start docker.service``` 
 
-entrar no diretório "docker" pelo terminal com o comando:
+2) entrar no diretório "docker" pelo terminal com o comando:
 ```cd docker```
  
-para subir o container e deixar o banco apto a conexões, digite no terminal:
+3) para subir o container e deixar o banco apto a conexões, digite no terminal:
 ```docker-compose up```
 
 ### Documentação 
