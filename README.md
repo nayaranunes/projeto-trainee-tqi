@@ -2,7 +2,6 @@
 
 ### Subindo o banco de dados utilizando docker-compose 
 Requisitos: ter docker e docker-compose instalados e rodar no terminal:
-
 ```systemctl start docker.service``` 
 
 entrar no diretório "docker" pelo terminal com o comando:
