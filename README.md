@@ -1,4 +1,4 @@
-#Sistema de análise de crédito - Cipher Loans 
+# Sistema de análise de crédito - Cipher Loans 
 
 ### Subindo o banco de dados utilizando docker-compose 
 Requisitos: ter docker e docker-compose instalados e rodar no terminal:
