@@ -1,8 +1,8 @@
 # Sistema de análise de crédito - Cipher Loans 
 
-Parametrização da aprovação do empréstimo (score point, renda(income), valor do empréstimo):
+Parametrização da aprovação do empréstimo (score points, renda, valor do empréstimo):
 
-1000 > Score >= 800 | até 80% da renda é aprovada;
+1000 >= Score >= 800 | até 80% da renda é aprovada;
 
 800 > Score >= 700 | até 70% da renda é aprovada;
 
